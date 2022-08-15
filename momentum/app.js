@@ -1,9 +1,6 @@
 // document 객체를 이용해서 HTML 요소에 접근하고 변경할 수 있다
 // document.title = "Hi, this is momentum"
-
 // const title = document.getElementById("title");
-// console.log(title);
-
 // title.innerText = "Got you!";
 
 
@@ -19,3 +16,11 @@ console.log(title); //h1이 많아도 무조건 처음 h1만 읽어옴
 
 //title = document.querySelectorAll(".hello h1"); //배열로 모든 h1을 받아옴
 //console.log(title); 
+
+title.style.color = "blue"; //style을 JS에서 바꿀 수도 있다 
+
+
+function handleTitleClick() {
+    console.log("title is clicked");
+}
+title.addEventListener("click", handleTitleClick);
