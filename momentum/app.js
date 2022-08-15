@@ -1,14 +1,7 @@
-const player = {
-    name : "Heather",
-    points : 10,
-    fat : false,
-    sayHello : function() {
-        console.log("Hi, I'm " + this.name);
-    }
-};
+// document 객체를 이용해서 HTML 요소에 접근하고 변경할 수 있다
+document.title = "Hi, this is momentum"
 
-console.log(player);
-console.log(player.name);
-player.lastName = "Ryu";
-console.log(player);
-player.sayHello();
+const title = document.getElementById("title");
+console.log(title);
+
+title.innerText = "Got you!";
