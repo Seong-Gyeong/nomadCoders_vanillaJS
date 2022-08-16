@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Momentum</title>
+</head>
+<body>
+    <!-- 
+        - input의 유효성 검사를 작동시키려면 div가 아닌 form으로 감싸야함
+        - form으로 input을 감싸면 input의 값이 엔터를 치면 자동으로 제출됨 
+    -->
+    <form class="hidden" id="login-form">
+        <!-- 
+            required : 비어있으면 알림창 띄워줌 (유효성 검사)
+            maxlength : input value의 최대 길이를 지정해줄 수 있다 
+         -->
+        <input 
+        required  
+        maxlength="15"
+        type="text" placeholder="What is your name?">
+        <button>Log In</button>
+    </form>
+    <h2 id="clock">00:00:00</h2>
+    <h1 class="hidden" id="greeting"></h1>
+    <!-- <a href="https://nomadcoders.co">Go to Courses</a> -->
+    <script src="js/greetings.js"></script>
+    <script src="js/clock.js"></script>
+</body>
+</html>
