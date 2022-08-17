@@ -8,7 +8,7 @@ let toDos = [];
 
 //localStorage에 투두 저장하는 함수
 function saveTodos() {
-    localStorage.setItem("todos", JSON.stringify(toDos));
+    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
 
@@ -16,14 +16,16 @@ function saveTodos() {
 function deleteTodo(event) {
     const li = event.target.parentElement;
     //target : 클릭된 HTML 요소(버튼) , parentElement : target의 부모(li)
+    console.log(li.id);
     li.remove();
 }
 
 //todo 화면에 그리는 함수
-function paintTodo(newTodo) {
+function paintTodo(newTodoObj) {
    const li = document.createElement("li");
+   li.id = newTodoObj.id;
    const span = document.createElement("span");
-   span.innerText = newTodo;
+   span.innerText = newTodoObj.text;
    const button = document.createElement("button",deleteTodo);
    button.addEventListener("click", deleteTodo);
    button.innerText = "❌";
@@ -37,12 +39,13 @@ function handleToDoSubmit(event) {
     event.preventDefault();
     const newTodo = toDoInput.value; //투두 적은 거 변수에 넣고
     toDoInput.value = ""; //투두 적는 칸 비우기
-    const newTodoObject = {
+    const newTodoObj = {
         text : newTodo,
-        id : Date.now(), //랜덤 아이디 부여
+        id : Date.now(), 
+        //랜덤 아이디 부여
     };
-    toDos.push(newTodoObject); //배열에 todo 추가하기 
-    paintTodo(newTodo); //변수에 넣은 todo 화면에 그려주기
+    toDos.push(newTodoObj); //배열에 todo 추가하기 
+    paintTodo(newTodoObj); //변수에 넣은 todo 화면에 그려주기
     saveTodos(); //todo 저장
 }
 
@@ -56,7 +59,7 @@ function sayHello(item){ //item:JS는 이 함수가 실행되는 item(parsedToDo
 
 const savedTodos = localStorage.getItem(TODOS_KEY); //문자열
 
-if(saveTodos != null) { //saveTodos가 있다면 
+if(savedTodos !== null) { //saveTodos가 있다면 
     const parsedToDos = JSON.parse(savedTodos); //배열(객체)
     toDos = parsedToDos; //새로고침할 때마다 예전에 적은 투두들이 날아가지 않게!
     //parsedToDos.forEach((item) => console.log("this is the turn of " + item));
