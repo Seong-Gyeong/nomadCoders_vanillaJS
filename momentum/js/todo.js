@@ -16,8 +16,9 @@ function saveTodos() {
 function deleteTodo(event) {
     const li = event.target.parentElement;
     //target : 클릭된 HTML 요소(버튼) , parentElement : target의 부모(li)
-    console.log(li.id);
     li.remove();
+    toDos = toDos.filter((toDo)=> toDo.id !== parseInt(li.id));
+    saveTodos();
 }
 
 //todo 화면에 그리는 함수
@@ -64,6 +65,14 @@ if(savedTodos !== null) { //saveTodos가 있다면
     toDos = parsedToDos; //새로고침할 때마다 예전에 적은 투두들이 날아가지 않게!
     //parsedToDos.forEach((item) => console.log("this is the turn of " + item));
     //forEach : 배열에 있는 요소의 개수만큼 인자로 들어간 함수를 실행함 
-    parsedToDos.forEach(paintTodo); //paintTodo의 인자에 배열의 요소를 JS가 집어넣어줌 
+    parsedToDos.forEach(paintTodo); //forEach가 paintTodo의 인자에 배열의 요소를 JS가 집어넣어줌 
 }
 
+//array에서 뭔가를 삭제할 때는 실제로 array에서 그 요소를 삭제하는 게 아니라 새 array를 만든다 
+//새 array에서도 같은 배열을 유지하고 싶다면 무조건 true를 리턴해야함 
+function sexyFilter(item){
+    return item !==3; //3일 때는 3 제외한 array 새로 만듬 
+}
+
+[1, 2, 3, 4].filter(sexyFilter);
+//sexyFilter(1) -> sexyFilter(2) -> sexyFilter(3) -> sexyFilter(4) 실행 
