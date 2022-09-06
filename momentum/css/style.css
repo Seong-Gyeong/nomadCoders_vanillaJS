@@ -64,7 +64,7 @@
 #todo-form {
   position: absolute;
   height: 5%;
-  width: 15%;
+  width: 30%;
   top: 63%;
   left: 50%;
   border: 0;
@@ -92,24 +92,25 @@
 
 #todo-list {
   position: absolute;
-  top: 70%;
+  top: 75%;
   left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-#todo-list ul {
-  position: absolute;
-  width: 100%;
-  height: 300%;
-  list-style: none;
+  width: 300px;
+  height: 120px;
+  padding: 0px 0px 0px 0px;
+  border: rgba(0, 0, 0, 0.3) solid;
   transform: translate(-50%, -50%);
   overflow: scroll;
 }
 
 #todo-list li {
-  width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
+  width: 99%;
+  height: 35px;
+  margin: auto 0px auto 0px;
+  padding: 17.5px 0px 0px 0px;
+  line-height: 17.5px;
+  font-size: 20px;
+  border: rgba(0, 0, 0, 0.3) solid;
+  /* transform-x: translate(-10%); */
   list-style-type: none;
 }
 
@@ -126,6 +127,8 @@
 #checkToDo {
   border: none;
   outline: none;
+  width: 15px;
+  height: 15px;
 }
 
 #checkToDo::after {
