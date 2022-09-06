@@ -1,0 +1,158 @@
+.hidden {
+  display: none;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /* 가장 가까운 조상 요소 중 position을 가진 요소를 기준으로 배치한다 
+  조상 중 position을 가진 요소가 없다면 body 기준으로 배치 */
+  top: 0; /*위에서부터 얼마나 떨어질 것인가 */
+  left: 0;
+  z-index: -1;
+  /*z-index 숫자가 클수록 최상단으로 감
+  이걸 사용하려면 position 속성이 absolute, relative, fixed로 되어있어야 함 */
+  opacity: 90%;
+}
+
+#clock {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  font-size: 130px;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  opacity: 0.8;
+}
+
+#login-form {
+  position: absolute;
+  height: 5%;
+  width: 30%;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#login-form input {
+  height: 100%;
+  width: 100%;
+  outline: 0;
+  border: 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  font-size: 20px;
+  caret-color: #fff;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+#login-form input::placeholder {
+  color: #fff;
+  opacity: 0.7;
+  text-align: center;
+}
+
+#greeting {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+#todo-form {
+  position: absolute;
+  height: 5%;
+  width: 30%;
+  top: 63%;
+  left: 50%;
+  border: 0;
+  transform: translate(-50%, -50%);
+}
+
+#todo-form input {
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  border-bottom: 2px solid;
+  border-color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  caret-color: #fff;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+#todo-form input::placeholder {
+  color: #fff;
+  opacity: 0.7;
+  text-align: center;
+}
+
+#todo-list {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  width: 300px;
+  height: 120px;
+  padding: 0px 0px 0px 0px;
+  border: rgba(0, 0, 0, 0.3) solid;
+  transform: translate(-50%, -50%);
+  overflow: scroll;
+}
+
+#todo-list li {
+  width: 99%;
+  height: 35px;
+  margin: auto 0px auto 0px;
+  padding: 17.5px 0px 0px 0px;
+  line-height: 17.5px;
+  font-size: 20px;
+  border: rgba(0, 0, 0, 0.3) solid;
+  /* transform-x: translate(-10%); */
+  list-style-type: none;
+}
+
+#todo-list li button {
+  visibility: hidden;
+  border: 0;
+  background-color: transparent;
+}
+
+#todo-list li:hover button {
+  visibility: visible;
+}
+
+#checkToDo {
+  border: none;
+  outline: none;
+  width: 15px;
+  height: 15px;
+}
+
+#checkToDo::after {
+  text-decoration: overline;
+}
+
+#quote span:first-child {
+  position: absolute;
+  top: 93%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 15px;
+  opacity: 0.6;
+  color: #fff;
+}
+
+#quote span:last-child {
+  position: absolute;
+  top: 97%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 13px;
+  color: #fff;
+  opacity: 0.4;
+}
