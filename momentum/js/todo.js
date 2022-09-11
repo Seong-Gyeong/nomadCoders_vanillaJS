@@ -1,6 +1,7 @@
 const toDoForm = document.querySelector("#todo-form");
 const toDoInput = document.querySelector("#todo-form input");
 const toDoList = document.querySelector("#todo-list");
+const toDoFrame = document.querySelector("#todoFrame");
 
 const TODOS_KEY = "todos";
 
@@ -25,26 +26,19 @@ function paintTodo(newTodoObj) {
   const li = document.createElement("li");
   li.id = newTodoObj.id;
   const span = document.createElement("span");
-  span.innerHTML = `<input type="checkbox" id="checkToDo">${newTodoObj.text}`;
+  span.innerHTML = `${newTodoObj.text}`;
   span.setAttribute("id", "toDoFrame");
+  function doneToDo() {
+    span.innerHTML = `<del>${span.innerHTML}</del>`;
+  }
+  span.addEventListener("click", doneToDo);
+
   const button = document.createElement("button", deleteTodo);
   button.addEventListener("click", deleteTodo);
   button.innerText = "𝗫";
   li.appendChild(span);
   li.appendChild(button);
   toDoList.appendChild(li);
-
-  //check하면 취소선 그어지게 하는 함수
-  let chk = document.querySelector("#checkToDo");
-  let spanTag = document.querySelector("#toDoFrame");
-
-  chk.addEventListener("change", () => {
-    if (chk.checked === true) {
-      spanTag.style.textDecoration = "line-through";
-    } else {
-      spanTag.style.textDecoration = "";
-    }
-  });
 }
 
 //투두를 추가하고 저장하고 화면에 보여주는 함수
@@ -61,8 +55,18 @@ function handleToDoSubmit(event) {
   paintTodo(newTodoObj); //변수에 넣은 todo 화면에 그려주기
   saveTodos(); //todo 저장
 }
-
 toDoForm.addEventListener("submit", handleToDoSubmit);
+
+// function DoneToDoList(event) {
+//   const checkbox = document.getElementById("checkbox");
+//   const toDoFrame = document.getElementById("toDoFrame");
+//   if (checkbox.checked) {
+//     let toDoContent = toDoFrame.innerText;
+//     toDoContent = toDoContent.strike();
+//   }
+// }
+
+// checkToDo.addEventListener("change", DoneToDoList);
 
 /*
 function sayHello(item){ //item:JS는 이 함수가 실행되는 item(parsedToDos)를 제공해줌! event처럼
